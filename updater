@@ -30,7 +30,7 @@ main(){
 landing(){
   banner 
   echo ""
-  echo -e "1) update brew               2) upgrade all packages"
+  echo -e "1) update apt               2) upgrade all packages"
   echo -e "3) system info               4) network"
   echo -e "5) configure brew"            
   echo -e "6) install package(s)        7) uninstall package(s)"
@@ -51,7 +51,7 @@ controls(){
       exit 0
       ;;
     "1")
-      update_brew # updates apt
+      update_apt # updates apt
       ;;
     "2")
       upgrade_packages # upgrades apt packages
@@ -63,7 +63,7 @@ controls(){
       network_info 
       ;;
     "5")
-      configure_brew # configures brew (when porting to debian make it so that it edits debian repos in /etc/apt/sources.list.d/, when porting to fedora make it so that it configures through making a .repo file in /etc/yum.repos.d/ and then adds the repo through dnf config-manager --add-repo $REPOFILE)
+      configure_apt # configures brew (when porting to debian make it so that it edits debian repos in /etc/apt/sources.list.d/, when porting to fedora make it so that it configures through making a .repo file in /etc/yum.repos.d/ and then adds the repo through dnf config-manager --add-repo $REPOFILE)
       ;;
     "6")
       install_packages
