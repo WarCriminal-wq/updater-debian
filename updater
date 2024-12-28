@@ -104,7 +104,7 @@ upgrade_packages(){
 
 system_info(){
   clear 
-  neofetch
+  fastfetch || neofetch
   return_to_landing
 }
 
@@ -140,7 +140,7 @@ network_info(){
           ;; 
         "4")
           clear 
-          speedtest-cli
+          speedtest
           return_to_network
             ;;
         "5")
