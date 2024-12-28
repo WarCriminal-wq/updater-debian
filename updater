@@ -312,7 +312,7 @@ install_packages(){
     sleep 2
     clear
     clear
-    configure_apt
+    install_packages
     ;;
   esac
 }
@@ -359,7 +359,7 @@ uninstall_packages(){
     sleep 2
     clear
     clear
-    configure_apt
+    uninstall_packages
     ;;
   esac
 }
