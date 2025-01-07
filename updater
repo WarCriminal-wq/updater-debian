@@ -31,8 +31,8 @@ landing(){
   banner 
   echo ""
   echo -e "1) update apt               2) upgrade all packages"
-  echo -e "3) system info               4) network"
-  echo -e "5) configure brew"            
+  echo -e "3) system info              4) network"
+  echo -e "5) configure apt"            
   echo -e "6) install package(s)        7) uninstall package(s)"
   echo -e "8) command summary           9) system performance"
   echo -e "10) verify dependencies"
@@ -399,6 +399,25 @@ system_performance(){
   clear
   return_to_landing 
 
+}
+
+verify_install(){
+  clear
+  echo "Verifying dependencies..."
+
+  # List of required commands
+  dependencies=("brew" "fastfetch" "bmon" "termshark" "speedtest" "dialog" "tldr")
+
+  # Check each dependency
+  for cmd in "${dependencies[@]}"; do
+    if ! command -v $cmd &> /dev/null; then
+      echo "Dependency missing: $cmd"
+    else
+      echo "Dependency found: $cmd"
+    fi
+  done
+
+  return_to_landing
 }
 
 if [ "$EUID" -ne 0 ]; then
